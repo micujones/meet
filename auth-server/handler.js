@@ -37,20 +37,37 @@ module.exports.getAuthURL = async () => {
     };
 };
 
-// Using ES6 import/export syntax
-// export async function getAuthURL() {
-//     const authUrl = oAuth2Client.generateAuthUrl({
-//         access_type: 'offline',
-//         scope: SCOPES,
-//     });
+module.exports.getAccessToken = async (event) => {
+    const code = decodeURIComponent(`${event.pathParameters.code}`);
 
-//     return {
-//         statusCode: 200,
-//         headers: {
-//             'Access-Control-Allow-Origin': '*',
-//             'Access-Control-Allow-Credentials': true,
-//         },
-//         body: JSON.stringify({ authUrl }),
-//     };
-// }
-// export default { getAuthURL };
+    return new Promise((resolve, reject) => {
+        oAuth2Client.getToken(code, (error, response) => {
+            if (error) {
+                return reject(error);
+            }
+            return resolve(response);
+        });
+    })
+        .then((results) => {
+            return {
+                statusCode: 200,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': true,
+                },
+                body: JSON.stringify(results),
+            };
+        })
+        .catch((error) => {
+            return {
+                statusCode: 500,
+                body: JSON.stringify(error),
+            };
+        });
+};
+
+/*
+    URL endpoints
+    https://mbuu3r70j3.execute-api.us-east-2.amazonaws.com/dev/api/get-auth-url
+    https://mbuu3r70j3.execute-api.us-east-2.amazonaws.com/dev/api/token/{code}
+*/
