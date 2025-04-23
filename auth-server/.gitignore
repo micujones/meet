@@ -1,0 +1,6 @@
+node_modules
+jsmp_packages
+
+.serverless
+
+config.json
