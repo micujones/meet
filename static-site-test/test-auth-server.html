@@ -24,5 +24,30 @@
             <p id="result"></p>
             <a id="authURL" href target="_blank">Click to authorize</a>
         </main>
+
+        <script type="text/javascript">
+            const getAuthUrlButton =
+                document.getElementById('getAuthUrlButton');
+            const resultElement = document.getElementById('result');
+            const resultLink = document.getElementById('authURL');
+
+            const getAuthUrl =
+                'https://mbuu3r70j3.execute-api.us-east-2.amazonaws.com/dev/api/get-auth-url';
+
+            getAuthUrlButton.onclick = function () {
+                fetch(getAuthUrl)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (json) {
+                        const result = JSON.stringify(json);
+                        // we get the value of authUrl
+                        const { authUrl } = JSON.parse(result);
+                        // then add it to the html
+                        resultElement.innerText = result;
+                        resultLink.href = authUrl;
+                    });
+            };
+        </script>
     </body>
 </html>
