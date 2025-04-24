@@ -1,7 +1,12 @@
 import React from 'react';
+import EventList from './components/EventList';
 
 function App() {
-    return <></>;
+    return (
+        <div>
+            <EventList />
+        </div>
+    );
 }
 
 export default App;
