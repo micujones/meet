@@ -38,7 +38,6 @@ describe('<CitySearch /> component', () => {
         const user = userEvent.setup();
         const allEvents = await getEvents();
         const allLocations = extractLocations(allEvents);
-
         CitySearchComponent.rerender(
             <CitySearch allLocations={allLocations} />
         );
@@ -52,7 +51,7 @@ describe('<CitySearch /> component', () => {
             ? allLocations.filter((location) => {
                   return (
                       location
-                          .tpUpperCase()
+                          .toUpperCase()
                           .indexOf(cityTextBox.value.toUpperCase()) > -1
                   );
               })
