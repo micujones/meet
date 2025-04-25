@@ -1,7 +1,7 @@
 import React from 'react';
-import { Event } from './Event';
+import Event from './Event';
 
-export const EventList = ({ events }) => {
+const EventList = ({ events }) => {
     return (
         <ul id="event-list">
             {events
@@ -10,3 +10,5 @@ export const EventList = ({ events }) => {
         </ul>
     );
 };
+
+export default EventList;

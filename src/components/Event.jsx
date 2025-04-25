@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const Event = () => {
+const Event = () => {
     return <li></li>;
 };
+
+export default Event;
