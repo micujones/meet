@@ -30,4 +30,24 @@ describe('<Event /> component', () => {
 
         expect(EventComponent.queryByText(eventStartTime)).toBeInTheDocument();
     });
+
+    test('render event location', async () => {
+        const allEvents = await getEvents();
+        const index = Math.floor(Math.random() * allEvents.length);
+        const event = allEvents[index];
+
+        EventComponent.rerender(<Event event={event} />);
+        const eventLocation = event.location;
+
+        expect(EventComponent.queryByText(eventLocation)).toBeInTheDocument();
+    });
+
+    test('render show details button', async () => {
+        const allEvents = await getEvents();
+        const index = Math.floor(Math.random() * allEvents.length);
+        const event = allEvents[index];
+        EventComponent.rerender(<Event event={event} />);
+
+        expect(EventComponent.queryByText('Show Details')).toBeInTheDocument();
+    });
 });
