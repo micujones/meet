@@ -5,49 +5,33 @@ import { getEvents } from '../api';
 
 describe('<Event /> component', () => {
     let EventComponent;
-    beforeEach(() => {
+    let allEvents, index, event;
+
+    beforeEach(async () => {
         EventComponent = render(<Event />);
+
+        allEvents = await getEvents();
+        index = Math.floor(Math.random() * allEvents.length);
+        event = allEvents[index];
+
+        EventComponent.rerender(<Event event={event} />);
     });
 
     test('renders event title', async () => {
-        const allEvents = await getEvents();
-        const index = Math.floor(Math.random() * allEvents.length);
-        const event = allEvents[index];
-
-        EventComponent.rerender(<Event event={event} />);
-        const eventTitle = event.summary;
-
-        expect(EventComponent.queryByText(eventTitle)).toBeInTheDocument();
+        expect(EventComponent.queryByText(event.summary)).toBeInTheDocument();
     });
 
     test('render event start time', async () => {
-        const allEvents = await getEvents();
-        const index = Math.floor(Math.random() * allEvents.length);
-        const event = allEvents[index];
-
-        EventComponent.rerender(<Event event={event} />);
-        const eventStartTime = event.start.dateTime;
-
-        expect(EventComponent.queryByText(eventStartTime)).toBeInTheDocument();
+        expect(
+            EventComponent.queryByText(event.start.dateTime)
+        ).toBeInTheDocument();
     });
 
     test('render event location', async () => {
-        const allEvents = await getEvents();
-        const index = Math.floor(Math.random() * allEvents.length);
-        const event = allEvents[index];
-
-        EventComponent.rerender(<Event event={event} />);
-        const eventLocation = event.location;
-
-        expect(EventComponent.queryByText(eventLocation)).toBeInTheDocument();
+        expect(EventComponent.queryByText(event.location)).toBeInTheDocument();
     });
 
-    test('render show details button', async () => {
-        const allEvents = await getEvents();
-        const index = Math.floor(Math.random() * allEvents.length);
-        const event = allEvents[index];
-        EventComponent.rerender(<Event event={event} />);
-
+    test('render show details button', () => {
         expect(EventComponent.queryByText('Show Details')).toBeInTheDocument();
     });
 });
