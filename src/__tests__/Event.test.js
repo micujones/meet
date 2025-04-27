@@ -19,4 +19,15 @@ describe('<Event /> component', () => {
 
         expect(EventComponent.queryByText(eventTitle)).toBeInTheDocument();
     });
+
+    test('render event start time', async () => {
+        const allEvents = await getEvents();
+        const index = Math.floor(Math.random() * allEvents.length);
+        const event = allEvents[index];
+
+        EventComponent.rerender(<Event event={event} />);
+        const eventStartTime = event.start.dateTime;
+
+        expect(EventComponent.queryByText(eventStartTime)).toBeInTheDocument();
+    });
 });

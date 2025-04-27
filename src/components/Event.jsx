@@ -3,7 +3,12 @@ import React from 'react';
 const Event = ({ event }) => {
     return (
         <li>
-            <h2 id="summary">{event ? event.summary : null}</h2>
+            {event ? (
+                <>
+                    <h2 id="summary">{event.summary}</h2>
+                    <p id="start-time">{event.start.dateTime}</p>
+                </>
+            ) : null}
         </li>
     );
 };
