@@ -67,9 +67,9 @@ export const getAccessToken = async () => {
     const tokenCheck = accessToken && (await checkToken(accessToken));
 
     if (!accessToken || tokenCheck.error) {
-        await localStorage.removeItem('access_token');
+        localStorage.removeItem('access_token');
         const searchParams = new URLSearchParams(window.location.search);
-        const code = await searchParams.get('code');
+        const code = searchParams.get('code');
 
         if (!code) {
             const response = await fetch(
