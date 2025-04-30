@@ -50,7 +50,7 @@ export const getEvents = async () => {
 
     if (token) {
         removeQuery();
-        const url = `https://mbuu3r70j3.execute-api.us-east-2.amazonaws.com/dev/api/get-events/${accessToken}`;
+        const url = `https://mbuu3r70j3.execute-api.us-east-2.amazonaws.com/dev/api/get-events/${token}`;
         const response = await fetch(url);
         const result = await response.json();
         if (result) {
