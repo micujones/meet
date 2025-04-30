@@ -26,6 +26,7 @@ const getToken = async (code) => {
     return access_token;
 };
 
+// removes the code from the URL once finished with it
 const removeQuery = () => {
     let newUrl;
     if (window.history.pushState && window.location.pathname) {
