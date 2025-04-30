@@ -75,7 +75,7 @@ export const getAccessToken = async () => {
             const response = await fetch(
                 'https://mbuu3r70j3.execute-api.us-east-2.amazonaws.com/dev/api/get-auth-url'
             );
-            const result = response.json();
+            const result = await response.json();
             const { authUrl } = result;
             return (window.location.href = authUrl);
         }
