@@ -1,10 +1,11 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import App from '../App';
 import NumberOfEvents from '../components/NumberOfEvents';
 
-describe('<NumberOfEvents /> compondent', () => {
+describe('<NumberOfEvents /> component', () => {
     let NumberOfEventsComponent;
     let inputField;
     beforeEach(() => {
@@ -27,5 +28,31 @@ describe('<NumberOfEvents /> compondent', () => {
         await user.type(inputField, `{backspace}{backspace}${userInput}`);
 
         expect(inputField.value).toBe(userInput);
+    });
+});
+
+describe('<NumberOfEvents /> integration', () => {
+    test('renders numbers of events based on user input', async () => {
+        const AppComponent = render(<App />);
+        const AppDOM = AppComponent.container.firstChild;
+        const NumberOfEventsComponent =
+            AppDOM.querySelector('#number-of-events');
+        const EventList = AppDOM.querySelector('#event-list');
+
+        const user = userEvent.setup();
+
+        const inputField = within(NumberOfEventsComponent).queryByRole(
+            'textbox'
+        );
+
+        const userInput = Math.floor(Math.random() * 30).toString();
+        await user.type(inputField, `{backspace}{backspace}${userInput}`);
+
+        await waitFor(() => {
+            const EventListItems = within(EventList).queryAllByRole('listitem');
+
+            expect(inputField.value).toBe(userInput);
+            expect(EventListItems.length).toBe(parseInt(userInput));
+        });
     });
 });

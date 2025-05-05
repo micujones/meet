@@ -2,14 +2,9 @@ import React from 'react';
 
 const NumberOfEvents = () => {
     return (
-        <div>
+        <div id="number-of-events">
             <label htmlFor="number-of-events">Number of Events</label>
-            <input
-                id="number-of-events"
-                type="text"
-                defaultValue={32}
-                placeholder="32"
-            />
+            <input type="text" defaultValue={32} placeholder="32" />
         </div>
     );
 };
