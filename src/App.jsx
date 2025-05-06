@@ -5,6 +5,8 @@ import NumberOfEvents from './components/NumberOfEvents';
 
 import { extractLocations, getEvents } from './api';
 
+import './App.css';
+
 function App() {
     const [events, setEvents] = useState([]);
     const [currentNOE, setCurrentNOE] = useState(32); // NOE = number of events
@@ -28,7 +30,7 @@ function App() {
     };
 
     return (
-        <div>
+        <div className="App">
             <CitySearch
                 allLocations={allLocations}
                 setCurrentCity={setCurrentCity}
