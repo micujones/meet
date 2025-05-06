@@ -13,7 +13,7 @@ function App() {
 
     useEffect(() => {
         fetchData();
-    }, [currentCity]);
+    }, [currentCity, currentNOE]);
 
     const fetchData = async () => {
         const allEvents = await getEvents();
@@ -33,7 +33,7 @@ function App() {
                 allLocations={allLocations}
                 setCurrentCity={setCurrentCity}
             />
-            <NumberOfEvents />
+            <NumberOfEvents setCurrentNOE={setCurrentNOE} />
             <EventList events={events} />
         </div>
     );
