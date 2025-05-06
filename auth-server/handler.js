@@ -11,7 +11,7 @@ const SCOPES = [
 
 // if you are using ViteJS, use import.meta.env (https://stackoverflow.com/questions/30239060/uncaught-referenceerror-process-is-not-defined)
 const { CLIENT_SECRET, CLIENT_ID, CALENDAR_ID } = process.env; // or import.meta.env
-const redirect_uris = ['https://meet-blush-nine.vercel.app/'];
+const redirect_uris = ['https://meet-blush-nine.vercel.app'];
 
 const oAuth2Client = new google.auth.OAuth2(
     CLIENT_ID,
