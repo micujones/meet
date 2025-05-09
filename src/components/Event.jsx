@@ -33,20 +33,22 @@ const Event = ({ event }) => {
                                 Show Details
                             </button>
                         </div>
-                        <div
-                            id="details"
-                            style={{ display: `${detailsDisplay}` }}
-                        >
-                            <h3>About event:</h3>
-                            <p id="description">{event.description}</p>
-                            <button
-                                className="details-btn"
-                                id="hide-details"
-                                onClick={handleDetailsDisplay}
+                        {detailsDisplay === 'block' ? (
+                            <div
+                                id="details"
+                                style={{ display: `${detailsDisplay}` }}
                             >
-                                Hide Details
-                            </button>
-                        </div>
+                                <h3>About event:</h3>
+                                <p id="description">{event.description}</p>
+                                <button
+                                    className="details-btn"
+                                    id="hide-details"
+                                    onClick={handleDetailsDisplay}
+                                >
+                                    Hide Details
+                                </button>
+                            </div>
+                        ) : null}
                     </div>
                 </>
             ) : null}

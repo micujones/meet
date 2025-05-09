@@ -41,9 +41,7 @@ describe('<Event /> component', () => {
 
     // Rendering details
     test("by default, event's details section should be hidden", () => {
-        expect(
-            EventComponent.container.querySelector('#details')
-        ).not.toBeVisible();
+        expect(EventComponent.container.querySelector('#details')).toBeNull();
     });
 
     test("shows the details section when the user clicks on the 'show details' button", async () => {
