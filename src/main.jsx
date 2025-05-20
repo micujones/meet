@@ -12,4 +12,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 
 atatus.config('ecc523a92aa64efcb39d5800883cf7da').install();
-atatus.notify(new Error('Test Atatus Setup'));
