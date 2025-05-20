@@ -44,9 +44,11 @@ function App() {
                 allLocations={allLocations}
                 setCurrentCity={setCurrentCity}
                 setInfoAlert={setInfoAlert}
+            />
+            <NumberOfEvents
+                setCurrentNOE={setCurrentNOE}
                 setErrorAlert={setErrorAlert}
             />
-            <NumberOfEvents setCurrentNOE={setCurrentNOE} />
             <EventList events={events} />
         </div>
     );
