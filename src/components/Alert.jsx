@@ -3,19 +3,17 @@ import { Component } from 'react';
 class Alert extends Component {
     constructor(props) {
         super(props);
-        this.color = null;
         this.bgColor = null;
     }
 
     getStyle = () => {
         return {
-            color: this.color,
+            color: '#fff',
             backgroundColor: this.bgColor,
-            borderWidth: '2px',
+            borderWidth: '0px',
             borderStyle: 'solid',
             fontWeight: 'bolder',
             borderRadius: '7px',
-            borderColor: this.color,
             textAlign: 'center',
             fontSize: '12px',
             margin: '10px 0',
@@ -35,24 +33,24 @@ class Alert extends Component {
 class InfoAlert extends Alert {
     constructor(props) {
         super(props);
-        this.color = 'rgb(0, 0, 255)';
-        this.bgColor = 'rgb(220, 220, 255)';
+        // this.color = 'rgb(0, 0, 255)';
+        this.bgColor = 'rgb(26, 156, 192)';
     }
 }
 
 class ErrorAlert extends Alert {
     constructor(props) {
         super(props);
-        this.color = 'rgb(255, 0, 0)';
-        this.bgColor = 'rgb(255, 220, 220)';
+        // this.color = 'rgb(255, 0, 0)';
+        this.bgColor = 'rgb(209, 30, 53)';
     }
 }
 
 class WarningAlert extends Alert {
     constructor(props) {
         super(props);
-        this.color = 'rgb(250, 220, 10)';
-        this.bgColor = 'rgb(255, 255, 224)';
+        // this.color = 'rgb(250, 220, 10)';
+        this.bgColor = 'rgb(254, 181, 13)';
     }
 }
 

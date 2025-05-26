@@ -24,7 +24,7 @@ function App() {
             setWarningAlert('');
         } else {
             setWarningAlert(
-                'You are offline.\nCurrent list may not be up-to-date.'
+                'Warning! You are offline. Current list may not be up-to-date.'
             );
         }
         fetchData();
@@ -44,6 +44,7 @@ function App() {
 
     return (
         <div className="App">
+            <h1>Meet App</h1>
             <div className="alerts-container">
                 {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
                 {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
@@ -51,6 +52,7 @@ function App() {
                     <WarningAlert text={warningAlert} />
                 ) : null}
             </div>
+            <p style={{ paddingTop: '12px' }}>Search for events by city</p>
             <CitySearch
                 allLocations={allLocations}
                 setCurrentCity={setCurrentCity}
