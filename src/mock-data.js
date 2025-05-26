@@ -41,6 +41,16 @@ const mockData = [
         eventType: 'default',
     },
     {
+        summary: 'Fun with Angular',
+        description:
+            'Developed by Google, AngularJS is a relatively new JavaScript, and it is designed to make front-end development as easy as possible for you. Join us to get introduced to this wonderful framework and dive deep into its features.',
+        location: 'Dubai - United Arab Emirates',
+        start: {
+            dateTime: '2020-05-19T16:00:00+02:00',
+            timeZone: 'Europe/Berlin',
+        },
+    },
+    {
         kind: 'calendar#event',
         etag: '"3181159875584000"',
         id: '3qtd6uscq4tsi6gc7nmmtpqlct_20200520T120000Z',
