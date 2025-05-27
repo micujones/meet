@@ -101,3 +101,15 @@ input[type='number'] {
 .Alert {
     width: 250px;
 }
+
+.charts-container {
+    display: grid;
+    padding: 16px 0;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+}
