@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CitySearch from './components/CitySearch';
 import NumberOfEvents from './components/NumberOfEvents';
+import EventGenresChart from './components/EventGenresChart';
 import CityEventsChart from './components/CityEventsChart';
 import EventList from './components/EventList';
 
@@ -64,7 +65,10 @@ function App() {
                 setCurrentNOE={setCurrentNOE}
                 setErrorAlert={setErrorAlert}
             />
-            <CityEventsChart allLocations={allLocations} events={events} />
+            <div className="charts-container">
+                <EventGenresChart events={events} />
+                <CityEventsChart allLocations={allLocations} events={events} />
+            </div>
             <EventList events={events} />
         </div>
     );
